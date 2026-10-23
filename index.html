@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizMaster – Web Technologies Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <header class="topbar">
+    <div class="logo"><span class="logo-icon">⚡</span> QuizMaster</div>
+    <button id="themeBtn" class="theme-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+      <span class="sun">☀️</span><span class="moon">🌙</span>
+    </button>
+  </header>
+
+  <main class="container">
+
+    <!-- START SCREEN -->
+    <section id="startCard" class="card center-text pop">
+      <div class="hero-emoji">🧠</div>
+      <h1>Web Technologies Quiz</h1>
+      <p class="muted">Test your HTML, CSS &amp; JavaScript knowledge.</p>
+      <div class="chips">
+        <span class="chip">📝 5 Questions</span>
+        <span class="chip">⏱️ 15s each</span>
+        <span class="chip">🎲 Randomized</span>
+      </div>
+      <button id="startBtn" class="btn primary big">Start Quiz →</button>
+    </section>
+
+    <!-- QUIZ SCREEN -->
+    <section id="quizWrap" class="hidden">
+      <div id="progress" class="progress"></div>
+
+      <div id="quizCard" class="card">
+        <div class="top-row">
+          <span id="qCount" class="q-badge">Question 1 / 5</span>
+          <div class="timer-box" id="timerBox">
+            <svg viewBox="0 0 44 44" class="ring">
+              <circle class="ring-bg" cx="22" cy="22" r="19"/>
+              <circle class="ring-fg" id="ringFg" cx="22" cy="22" r="19"/>
+            </svg>
+            <span id="timer" class="timer-num">15</span>
+          </div>
+        </div>
+
+        <h2 id="question"></h2>
+        <div id="options"></div>
+
+        <div class="bottom-row">
+          <span id="scoreLive" class="muted">Score: 0</span>
+          <button id="nextBtn" class="btn primary" disabled>Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="resultCard" class="card hidden">
+      <div class="center-text">
+        <div class="score-ring" id="scoreRing">
+          <div class="score-inner">
+            <span id="scorePct">0%</span>
+            <small id="scoreText">0 / 5</small>
+          </div>
+        </div>
+        <h1 id="resultTitle">Quiz Result</h1>
+        <p id="score" class="muted"></p>
+      </div>
+
+      <div class="table-wrap">
+        <table id="resultTable">
+          <thead>
+            <tr><th>#</th><th>Question</th><th>Your Answer</th><th>Correct Answer</th><th>Status</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="btn-row">
+        <button id="pdfBtn" class="btn blue">⬇ Download PDF</button>
+        <button id="restartBtn" class="btn primary">↻ Try Again</button>
+      </div>
+    </section>
+
+  </main>
+
+  <canvas id="confetti"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
